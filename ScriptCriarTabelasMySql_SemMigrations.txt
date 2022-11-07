@@ -1,0 +1,38 @@
+CREATE TABLE `tb_imovel` (
+  `IdImovel` int(11) NOT NULL AUTO_INCREMENT,
+  `Tipo` longtext NOT NULL,
+  `Endereco` longtext NOT NULL,
+  `DtCadastro` date NOT NULL,
+  PRIMARY KEY (`IdImovel`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+GO
+
+CREATE TABLE `tb_pessoas` (
+  `IdPessoa` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` longtext NOT NULL,
+  `Email` longtext NOT NULL,
+  `Telefone` varchar(11) DEFAULT NULL,
+  `IdTipo` int(11) NOT NULL,
+  PRIMARY KEY (`IdPessoa`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+GO
+
+CREATE TABLE `tb_tipopessoa` (
+  `IdTipo` int(11) NOT NULL AUTO_INCREMENT,
+  `DescricaoTipo` longtext NOT NULL,
+  PRIMARY KEY (`IdTipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+GO
+
+CREATE TABLE `tb_visitas` (
+  `IdVisitas` int(11) NOT NULL AUTO_INCREMENT,
+  `idCliente` int(11) NOT NULL,
+  `idCorretor` int(11) NOT NULL,
+  `idImovel` int(11) NOT NULL,
+  `dtVisita` date NOT NULL,
+  PRIMARY KEY (`IdVisitas`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Adm_Imoveis.Models.Visita>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listagem</h1>
+
+<p>
+    <a asp-action="Create">Nova Visita</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idCorretor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idImovel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtVisita)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCorretor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idImovel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtVisita)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdVisitas">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdVisitas">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdVisitas">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
