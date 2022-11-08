@@ -159,7 +159,7 @@ namespace Adm_Imoveis.Controllers
           return _context.DbSetImovel.Any(e => e.IdImovel == id);
         }
 
-        [HttpGet]
+       /* [HttpGet]
         public JsonResult CorreiosEndereco(string cep)
         {
             var objCep = new Correios.AtendeClienteClient();
@@ -170,6 +170,6 @@ namespace Adm_Imoveis.Controllers
                 return Json(consulta.Result, new Newtonsoft.Json.JsonSerializerSettings());
             }
             return Json(null, new Newtonsoft.Json.JsonSerializerSettings());
-        }
+        }*/
     }
 }

@@ -6,22 +6,7 @@
 }
 
 <script type="text/javascript">
-   /* $(document).ready( function(){
-        $("#btnConsultarCep").click(function(){
-            $.ajax({
-                url:'@Url.Action("CorreiosEndereco","Imoveis")',
-                type: "GET",
-                contentType: "application/json",
-                data: { cep: $("#txtCep").val() },
-                success: function(result){
-                    $("#divEnd").html("<label>" + result + "</label>")
-                },
-                error: function(xhr, exception){
-                    alert("Erro ao buscar pelo endereço!")
-                }
-            });
-        })
-    });*/
+
 
      $(document).ready(function() {
 
@@ -66,6 +51,7 @@
                                 $("#cidade").val(dados.localidade);
                                 $("#uf").val(dados.uf);
                                 $("#ibge").val(dados.ibge);
+                                $('#Endereco').val(dados.logradouro + '-' + dados.bairro);
                             } //end if.
                             else {
                                 //CEP pesquisado não foi encontrado.
@@ -104,26 +90,20 @@
                 <input asp-for="Tipo" class="form-control" />
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
-            <div class="row">
-	            <div class="col-md-12 form-group">
-                    Informe o Cep: 
-		            @Html.TextBox("txtCep", null, new{@class="form-control"})
-	            </div>
-	            <div class="col-md-4">
-		            <button class="btn btn-success" id="btnConsultarCep" >Consultar</button>
-	            </div>
-            </div>
-            Endereço encontrado :
+
+            <br />
+            Busca por Cep:
             <div class="form-group" id="divEnd">
-                <label>Cep:<input name="cep" type="text" id="cep" value="" size="10" maxlength="9" /></label><br />
-                <label>Rua:<input name="rua" type="text" id="rua" size="60" /></label><br />
-                <label>Bairro:<input name="bairro" type="text" id="bairro" size="40" /></label><br />
-                <label>Cidade:<input name="cidade" type="text" id="cidade" size="40" /></label><br />
-                <label>Estado:<input name="uf" type="text" id="uf" size="2" /></label><br />
-                <label>IBGE:<input name="ibge" type="text" id="ibge" size="8" /></label><br />
+                <label><input name="cep" type="text" id="cep" value="" size="10" maxlength="9" /></label><br />
+                <label>Rua: <input name="rua" type="text" id="rua" size="60" disabled="true" /></label><br />
+                <label>Bairro: <input name="bairro" type="text" id="bairro" size="40" disabled="true" /></label><br />
+                <label>Cidade: <input name="cidade" type="text" id="cidade" size="40" disabled="true" /></label>
+                <label>Estado: <input name="uf" type="text" id="uf" size="2" /><br /></label>
+                <label>IBGE: <input name="ibge" type="text" id="ibge" size="8" disabled="true" /></label><br />
             </div>
 
-            <div class="form-group">
+            <br />
+            <div class="form-group" style="display:none;">
                 <label asp-for="Endereco" class="control-label"></label>
                 <input asp-for="Endereco" class="form-control" />
                 <span asp-validation-for="Endereco" class="text-danger"></span>
